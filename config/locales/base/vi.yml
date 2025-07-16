@@ -6,11 +6,16 @@ vi:
     signup: "Đăng ký ngay!"
 
   header:
-    logo: "Sample App"
+    logo: "Ứng Dụng"
     home: "Trang chủ"
     help: "Trợ giúp"
     contact: "Liên hệ"
     login: "Đăng nhập"
+    logout: "Đăng xuất"
+    account: "Tài khoản"
+    users: "Người dùng"
+    profile: "Trang cá nhân"
+    settings: "Cài đặt"
     english: "Tiếng Anh"
     vietnamese: "Tiếng Việt"
 
@@ -24,31 +29,6 @@ vi:
   contact:
     title: "Liên hệ"
     description: "Đây là trang Liên hệ cho Ứng dụng mẫu hướng dẫn Ruby on Rails."   
-    
-  users:
-    not_found: "Không tìm thấy người dùng."
-    index:
-      user: "Người dùng"
-      name: "Tên"
-      email: "Địa chỉ mail"
-      show: "Xem chi tiết"
-      edit: "Chinh sửa"
-      destroy: "Xóa"
-      new_user: "Thêm người dùng"
-      date: "Ngày tạo"
-    show:
-      name: "Tên"
-      created_at: "Ngày tạo" 
-      updated_at: "Ngày sửa đổi" 
-    create:
-      success: "Tạo người dùng thành công."
-      failure: "Tạo người dùng thất bại."
-    update:
-      success: "Cập nhật người dùng thành công."
-      failure: "Cập nhật người dùng thất bại."
-    destroy:
-      success: "Xóa người dùng thành công."
-      failure: "Xóa người dùng thất bại."
 
   activerecord:
     models:

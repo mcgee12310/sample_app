@@ -84,11 +84,16 @@ input,
 textarea,
 select,
 .uneditable-input {
-  width: 100%;
   border: 1px solid #bbb;
   margin-bottom: 15px;
+  width: 100%;
 }
 
 input {
   height: auto !important;
+}
+
+/* Dropdown menu */
+.dropdown-menu.active {
+  display: block;
 }

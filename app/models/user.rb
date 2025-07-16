@@ -36,9 +36,19 @@ format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   # validation cua email se khong phan biet CHU HOA va chu thuong
   validate :date_of_birth_must_be_within_last_100_years
 
-  private
+  class << self
+    # Returns the hash digest of the given string.
+    def digest string
+      cost = if ActiveModel::SecurePassword.min_cost
+               BCrypt::Engine::MIN_COST
+             else
+               BCrypt::Engine.cost
+             end
+      BCrypt::Password.create string, cost:
+    end
+  end
 
-  
+  private
 
   def downcase_email
     email.downcase!
