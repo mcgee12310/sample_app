@@ -1,6 +1,7 @@
 en:
   microposts:
-    micropost: "micropost"
+    micropost: "Microposts"
+    no_post: "No post."
     invalid: "Cannot do this actions."
     posted: "Posted"
     ago: "ago."

@@ -4,4 +4,6 @@
     </ol>
 
     <%== pagy_bootstrap_nav @pagy if @pagy %>
+<% else %>
+    <%= t("microposts.no_post") %>
 <% end %>

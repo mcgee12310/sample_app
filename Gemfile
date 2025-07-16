@@ -5,7 +5,9 @@ ruby "3.2.2"
 
 # i18n for multi-languages
 gem "rails-i18n"
+
 gem "i18n-js"
+
 # config for manage settings
 gem "config"
 

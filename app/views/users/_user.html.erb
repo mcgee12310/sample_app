@@ -1,7 +1,5 @@
-<% gravatar_size = 50 %>
-
 <li>
-    <%= gravatar_for user, size: gravatar_size %>
+    <%= gravatar_for user, size: Settings.default.gravatar.home_size %>
     <%= t("users.index.name") %>: <%= link_to user.name, user %>
 
     <% if can_destroy_user? user %>

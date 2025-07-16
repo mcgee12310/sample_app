@@ -1,6 +1,7 @@
 vi:
   microposts:
-    micropost: "bài đăng"
+    micropost: "Bài đăng"
+    no_post: "Không có bài đăng."
     invalid: "Không thể thực hiện hành động này."
     posted: "Đã đăng"
     ago: "trước."
