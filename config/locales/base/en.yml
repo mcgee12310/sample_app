@@ -1,4 +1,5 @@
 en:
+  app: "Sample App"
   home:
     title: "Home"
     welcome: "Welcome to the Sample App"

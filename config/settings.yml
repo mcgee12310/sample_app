@@ -3,6 +3,9 @@ default: &default
   admin_email: "admin@example.com"
   gravatar:
     email_link: "http://gravatar.com/emails"
+    avatar_link: "https://secure.gravatar.com/avatar/"
+  mailer:
+    from: "from@example.com"
   
 
 development:

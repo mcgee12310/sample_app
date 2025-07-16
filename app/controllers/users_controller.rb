@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   # BEFORE_ACTION CHAY TU TREN XUONG DUOI!!!
   before_action :logged_in_user, only: %i(index show edit update destroy)
-  # = only: %i(index edit update destroy)
   before_action :load_user, only: %i(show edit update destroy)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
@@ -20,11 +19,12 @@ class UsersController < ApplicationController
     @user = User.new user_params
 
     if @user.save
-      log_in(@user)
-      flash[:success] = t(".success")
-      redirect_to @user, status: :see_other
+      log_out
+      @user.send_activation_email
+      flash[:info] = t("users.create.activate")
+      redirect_to root_url, status: :see_other
     else
-      flash[:error] = t(".failure")
+      flash[:error] = t("users.create.failure")
       render :new, status: :unprocessable_entity
     end
   end
