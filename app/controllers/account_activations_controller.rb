@@ -3,7 +3,7 @@ class AccountActivationsController < ApplicationController
   before_action :check_not_activated, only: :edit
   before_action :check_valid_token, only: :edit
 
-  # edit_account_activation GET /account_activations/:id/edit(.:format)
+  # GET /account_activations/:id/edit(.:format)
   def edit
     @user.activate
     log_in @user

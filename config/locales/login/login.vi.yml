@@ -5,6 +5,8 @@ vi:
     email: "Email"
     password: "Mật khẩu"
     remember: "Ghi nhớ đăng nhập"
+    forget_password: "Quên mật khẩu?"
     new_user: "Người dùng mới?"
     signup: "Đăng ký ngay!"
     failure: "Sai email hoặc mật khẩu!"
+    not_activated: "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email."
