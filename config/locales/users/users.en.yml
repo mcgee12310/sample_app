@@ -2,6 +2,8 @@ en:
   users:
     not_found: "User not found."
     not_logged_in: "Please login."
+    activated: "Tài khoản đã được kích hoạt!"
+    not_activated: "Account not activated. Check your email for the activationlink."
     not_authorized: "You don't have authorize."
     index:
       title: "All users"
@@ -18,6 +20,7 @@ en:
     create:
       success: "User was successfully created."
       failure: "Failed to create user."
+      activate: "Please check your email to activate your account."
     update:
       title: "Update your profile"
       avatar: "Change avatar"
