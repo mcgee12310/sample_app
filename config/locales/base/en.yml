@@ -1,10 +1,13 @@
 en:
   app: "Sample App"
+  form_error: "The form contains"
   home:
     title: "Home"
     welcome: "Welcome to the Sample App"
     description_html: "This is the home page for the %{link} sample application."
+    rails_tutorial: "Ruby on Rails Tutorial"
     signup: "Sign up now!"
+    feed: "Microposts Feed"
 
   header:
     logo: "Sample App"

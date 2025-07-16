@@ -1,0 +1,20 @@
+vi:
+  microposts:
+    micropost: "bài đăng"
+    invalid: "Không thể thực hiện hành động này."
+    posted: "Đã đăng"
+    ago: "trước."
+    form:
+      place_holder: "Nội dung bài đăng..."
+      submit: "Đăng"
+    image:
+      not_permited: "Định dạng này không được hỗ trợ."
+      too_big: "Kích thước tệp quá lớn."
+    create:
+      success: "Đăng bài thành công."
+      failure: "Không thể đăng bài."
+    destroy: 
+      delete: "Xóa"
+      delete_confirm: "Bạn có chắc chắn muốn xóa bài đăng này không?"
+      success: "Xóa bài đăng thành công."
+      failure: "Không thể xóa bài đăng."

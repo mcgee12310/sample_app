@@ -5,7 +5,7 @@ ruby "3.2.2"
 
 # i18n for multi-languages
 gem "rails-i18n"
-
+gem "i18n-js"
 # config for manage settings
 gem "config"
 
@@ -59,7 +59,9 @@ gem "pagy", "9.3.3"
 gem "figaro"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
-# gem "image_processing", "~> 1.2"
+gem "active_storage_validations", "0.9.8"
+gem "image_processing", "1.12.2"
+gem "mini_magick"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html

@@ -1,11 +1,18 @@
 default: &default
   site_name: "Sample App"
   admin_email: "admin@example.com"
+  home:
+    rails_tutorial: "http://www.railstutorial.org/"
   gravatar:
     email_link: "http://gravatar.com/emails"
     avatar: "https://secure.gravatar.com/avatar/"
+    home_size: 50
+    micropost_size: 50
   mailer:
     from: "from@example.com"
+  image:
+    permit: "image/jpeg, image/gif, image/png"
+    SIZE_LIMIT: 10
 
 development:
   <<: *default
