@@ -1,0 +1,25 @@
+<header class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to t("header.logo"), "#", id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to t("header.home"), home_path %>
+        </li>
+        <li>
+          <%= link_to t("header.help"), help_path %>
+        </li>
+        <li>
+          <%= link_to t("header.contact"), contact_path %></li>
+        <li>
+          <%= link_to t("header.login"), "#" %>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="language-switcher pull-right" style="margin-right: 20px;">
+  <%= link_to t("home.english"), locale: :en %> |
+  <%= link_to t("home.vietnamese"), locale: :vi %>
+</div>
