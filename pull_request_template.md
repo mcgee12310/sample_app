@@ -23,6 +23,8 @@
 - Because in previous version - number just depends on `normal` items. But in new version, we have `state` and `confirm_state` depends on both `normal` + `not_normal` items.
 
 ## Evidence (Screenshot or Video)
+- pass rubucop's inspecting:
 
+- video demo:
 
 ## Notes (Kiến thức tìm hiểu thêm)
