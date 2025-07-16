@@ -1,6 +1,9 @@
 default: &default
   site_name: "Sample App"
   admin_email: "admin@example.com"
+  gravatar:
+    email_link: "http://gravatar.com/emails"
+  
 
 development:
   <<: *default
@@ -8,3 +11,5 @@ development:
 production:
   <<: *default
   site_name: "Sample App"
+
+

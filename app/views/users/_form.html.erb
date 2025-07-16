@@ -1,0 +1,28 @@
+<%= form_for(@user) do |f| %>
+    <!-- 
+    Rails tự động xác định HTTP method dựa vào trạng thái của đối tượng @user
+        @user là một bản ghi mới -> Rails hiểu là create -> POST
+        @user là bản ghi đã có trong CSDL -> Rails hiểu là update -> PATCH
+    -->
+  <%= render "shared/error_messages", object: @user %>
+
+  <%= f.label :name, t("users.form.name") %>
+  <%= f.text_field :name, class: "form-control" %>
+
+  <%= f.label :email, t("users.form.email") %>
+  <%= f.email_field :email, class: "form-control" %>
+
+  <%= f.label :date_of_birth, t("users.form.date_of_birth") %>
+  <%= f.date_field :date_of_birth, class: "form-control", max: Date.today %>
+
+  <%= f.label :gender, t("users.form.gender") %>
+  <%= f.select :gender, options_for_select(gender_options, @user.gender), {}, class: "form-control" %>
+
+  <%= f.label :password, t("users.form.password") %>
+  <%= f.password_field :password, class: "form-control" %>
+
+  <%= f.label :password_confirmation, t("users.form.password_confirmation") %>
+  <%= f.password_field :password_confirmation, class: "form-control" %>
+
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
