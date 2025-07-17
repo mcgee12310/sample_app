@@ -1,0 +1,39 @@
+vi:
+  home:
+    title: "Trang chủ"
+    welcome: "Chào mừng đến với Sample App"
+    description_html: "Đây là trang chủ cho %{link} ứng dụng."
+    signup: "Đăng ký ngay!"
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+
+  header:
+    logo: "Sample App"
+    home: "Trang chủ"
+    help: "Trợ giúp"
+    contact: "Liên hệ"
+    login: "Đăng nhập"
+    english: "Tiếng Anh"
+    vietnamese: "Tiếng Việt"
+
+  help:
+    title: "Trợ giúp"
+    link_1: "trang trợ giúp RailsTutorial"
+    link_2: "sách <em>Ruby on Rails Tutorial</em>"
+    paragraph_html: >
+      Nhận trợ giúp về Ruby on Rails Tutorial tại %{link_1}. Để biết thêm về ứng dụng mẫu, hãy xem %{link_2}.
+
+  contact:
+    title: "Liên hệ"
+    description: "Đây là trang Liên hệ cho Ứng dụng mẫu hướng dẫn Ruby on Rails."    
+    
+  users:
+    index:
+      user: "Người dùng"
+      name: "Tên"
+      email: "Địa chỉ mail"
+      show: "Xem chi tiết"
+      edit: "Chinh sửa"
+      destroy: "Xóa"
+      new_user: "Thêm người dùng"
+      date: "Ngày tạo"
