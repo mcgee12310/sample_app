@@ -4,8 +4,6 @@ vi:
     welcome: "Chào mừng đến với Sample App"
     description_html: "Đây là trang chủ cho %{link} ứng dụng."
     signup: "Đăng ký ngay!"
-    english: "Tiếng Anh"
-    vietnamese: "Tiếng Việt"
 
   header:
     logo: "Sample App"
@@ -28,6 +26,7 @@ vi:
     description: "Đây là trang Liên hệ cho Ứng dụng mẫu hướng dẫn Ruby on Rails."    
     
   users:
+    not_found: "Không tìm thấy người dùng."
     index:
       user: "Người dùng"
       name: "Tên"
@@ -37,3 +36,28 @@ vi:
       destroy: "Xóa"
       new_user: "Thêm người dùng"
       date: "Ngày tạo"
+    update:
+      success: "Cập nhật người dùng thành công."
+      failure: "Cập nhật người dùng thất bại."
+    destroy:
+      success: "Xóa người dùng thành công."
+      failure: "Xóa người dùng thất bại."
+
+  vi:
+  activerecord:
+    models:
+      user: "Người dùng"
+    attributes:
+      user:
+        name: "Tên"
+        email: "Email"
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: "Vui lòng nhập tên của bạn"
+            email:
+              taken: "Email này đã được đăng ký"
+            date_of_birth:
+              invalid_range: "Phải nằm trong khoảng 100 năm trở lại đây"
