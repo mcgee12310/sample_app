@@ -23,7 +23,7 @@ vi:
 
   contact:
     title: "Liên hệ"
-    description: "Đây là trang Liên hệ cho Ứng dụng mẫu hướng dẫn Ruby on Rails."    
+    description: "Đây là trang Liên hệ cho Ứng dụng mẫu hướng dẫn Ruby on Rails."   
     
   users:
     not_found: "Không tìm thấy người dùng."
@@ -36,6 +36,13 @@ vi:
       destroy: "Xóa"
       new_user: "Thêm người dùng"
       date: "Ngày tạo"
+    show:
+      name: "Tên"
+      created_at: "Ngày tạo" 
+      updated_at: "Ngày sửa đổi" 
+    create:
+      success: "Tạo người dùng thành công."
+      failure: "Tạo người dùng thất bại."
     update:
       success: "Cập nhật người dùng thành công."
       failure: "Cập nhật người dùng thất bại."
@@ -43,7 +50,6 @@ vi:
       success: "Xóa người dùng thành công."
       failure: "Xóa người dùng thất bại."
 
-  vi:
   activerecord:
     models:
       user: "Người dùng"
@@ -61,3 +67,7 @@ vi:
               taken: "Email này đã được đăng ký"
             date_of_birth:
               invalid_range: "Phải nằm trong khoảng 100 năm trở lại đây"
+
+  time:
+    formats:
+      long: "%H:%M, %d/%m/%Y"

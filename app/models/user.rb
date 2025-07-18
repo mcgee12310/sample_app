@@ -1,3 +1,5 @@
+VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
 class User < ApplicationRecord
   has_secure_password
   # cung cap xac thuc mat khau cho model user
@@ -7,7 +9,6 @@ class User < ApplicationRecord
   # password_digest: luu password vao csdl duoi dang hash
   # xac thuc mat khau bang authenticate(password)
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   NAME_MAX_LENGTH = 50
   EMAIL_MAX_LENGTH = 255
 
@@ -22,6 +23,16 @@ format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validate :date_of_birth_must_be_within_last_100_years
 
   private
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  USER_PERMIT = %i(
+    name
+    email
+    date_of_birth
+    gender
+    password
+    password_confirmation
+  ).freeze
 
   def downcase_email
     email.downcase!
