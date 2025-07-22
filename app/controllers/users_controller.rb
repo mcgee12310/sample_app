@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  before_action :set_user, only: [:show]
 
   def index
     @users = User.recent
@@ -12,35 +12,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new user_params
     if @user.save
-      redirect_to @user
+      flash[:success] = t("users.create.success")
+      redirect_to @user, status: :see_other
     else
-      render :new
-    end
-  end
-
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    if @user.update(user_params)
-      flash[:success] = t("users.update.success")
-      redirect_to @user
-    else
-      flash[:error] = t("users.update.failure")
-      render :edit
-    end
-  end
-
-  def destroy
-    if @user.destroy
-      flash[:success] = t("users.destroy.success")
-      redirect_to users_path
-    else
-      flash[:error] = t("users.destroy.failure")
-      redirect_to @user
+      flash[:error] = t("users.create.failure")
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -55,7 +33,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :age, :phone, :email,
-                                 :date_of_birth, :gender)
+    params.require(:user).permit(User::USER_PERMIT)
   end
 end

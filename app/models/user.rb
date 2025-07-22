@@ -11,6 +11,21 @@ class User < ApplicationRecord
   NAME_MAX_LENGTH = 50
   EMAIL_MAX_LENGTH = 255
 
+  USER_PERMIT = %i(
+    name
+    email
+    date_of_birth
+    gender
+    password
+    password_confirmation
+  ).freeze
+
+  GENDERS = {
+    male: "male",
+    female: "female",
+    other: "other"
+  }.freeze
+
   before_save :downcase_email
 
   scope :recent, ->{order(created_at: :desc)} # thu tu giam dan
@@ -22,6 +37,8 @@ format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validate :date_of_birth_must_be_within_last_100_years
 
   private
+
+  
 
   def downcase_email
     email.downcase!
