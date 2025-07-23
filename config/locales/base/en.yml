@@ -11,6 +11,11 @@ en:
     help: "Help"
     contact: "Contact"
     login: "Log in"
+    logout: "Log out"
+    account: "Account"
+    users: "Users"
+    profile: "Profile"
+    settings: "Settings"
     english: "English"
     vietnamese: "Vietnamese"
 
@@ -24,31 +29,6 @@ en:
   contact:
     title: "Contact"
     description: "This is the Contact page for the Ruby on Rails Tutorial Sample App."
-
-  users:
-    not_found: "User not found."
-    index:
-      user: "Users"
-      name: "Name"
-      email: "Email"
-      show: "Show"
-      edit: "Edit"
-      destroy: "Destroy"
-      new_user: "New User"
-      date: "Create date" 
-    show:
-      name: "Name"
-      created_at: "Created date" 
-      updated_at: "Updated date" 
-    create:
-      success: "User was successfully created."
-      failure: "Failed to create user."
-    update:
-      success: "User was successfully updated."
-      failure: "Failed to update the user."
-    destroy:
-      success: "User was successfully deleted."
-      failure: "Failed to delete the user."
 
   activerecord:
     models:
