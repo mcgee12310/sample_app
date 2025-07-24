@@ -4,7 +4,7 @@ en:
     welcome: "Welcome to the Sample App"
     description_html: "This is the home page for the %{link} sample application."
     signup: "Sign up now!"
-      
+
   header:
     logo: "Sample App"
     home: "Home"

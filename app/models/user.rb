@@ -26,6 +26,8 @@ class User < ApplicationRecord
     other: "other"
   }.freeze
 
+  attr_accessor :remember_token
+
   before_save :downcase_email
 
   scope :recent, ->{order(created_at: :desc)} # thu tu giam dan
@@ -44,8 +46,26 @@ format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
              else
                BCrypt::Engine.cost
              end
-      BCrypt::Password.create string, cost:
+      BCrypt::Password.create(string, cost: cost)
     end
+
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
+  end
+
+  def remember
+    self.remember_token = User.new_token
+    update_column :remember_digest, User.digest(remember_token)
+  end
+
+  # Forgets a user.
+  def forget
+    update_column :remember_digest, nil
+  end
+
+  def authenticated? remember_token
+    BCrypt::Password.new(remember_digest).is_password? remember_token
   end
 
   private
