@@ -1,4 +1,6 @@
 module SessionsHelper
+  REMEMBER_ME = "1".freeze
+
   # Logs in the given user.
   def log_in user
     user.remember
@@ -27,7 +29,7 @@ module SessionsHelper
     return if user_id.blank?
 
     user = User.find_by(id: user_id)
-    user if user&.authenticated?(session[:remember_token])
+    user if user&.authenticated?(:remember, session[:remember_token])
   end
 
   def find_user_from_cookies
@@ -35,7 +37,7 @@ module SessionsHelper
     return if user_id.blank?
 
     user = User.find_by(id: user_id)
-    return unless user&.authenticated?(cookies[:remember_token])
+    return unless user&.authenticated?(:remember, cookies[:remember_token])
 
     log_in(user)
     user
@@ -70,6 +72,23 @@ module SessionsHelper
   # Returns true if the given user is the current user.
   def current_user? user
     user == current_user
+  end
+
+  def authenticated_user user
+    if user.activated?
+      store_location
+      reset_session
+      if params[:session][:remember_me] == REMEMBER_ME
+        remember(user)
+      else
+        forget(user)
+      end
+      log_in user
+      redirect_back_or user
+    else
+      flash[:warning] = t("login.not_activated")
+      redirect_to root_url, status: :see_other
+    end
   end
 
   def redirect_back_or default

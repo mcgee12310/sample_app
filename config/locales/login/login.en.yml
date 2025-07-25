@@ -5,6 +5,8 @@ en:
     email: "Email"
     password: "Password"
     remember: "Remember me on this computer"
+    forget_password: "Forgot password?"
     new_user: "New User?"
     signup: "Sign Up Now!"
     failure: "Wrong email or password!"
+    not_activated: "Account not activated. Check your email for the activationlink."
