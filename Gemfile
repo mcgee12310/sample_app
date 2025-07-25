@@ -52,6 +52,10 @@ gem "jquery-rails"
 # Use Sass to process CSS
 gem "sassc-rails"
 
+gem "faker", "2.21.0"
+
+gem "pagy", "9.3.3"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html]
 # gem "image_processing", "~> 1.2"
 

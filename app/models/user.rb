@@ -10,6 +10,7 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   NAME_MAX_LENGTH = 50
   EMAIL_MAX_LENGTH = 255
+  PASSWORD_MIN_LENGTH = 3
 
   USER_PERMIT = %i(
     name
@@ -37,6 +38,8 @@ class User < ApplicationRecord
 format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   # validation cua email se khong phan biet CHU HOA va chu thuong
   validate :date_of_birth_must_be_within_last_100_years
+  validates :password, presence: true, length: {minimum: PASSWORD_MIN_LENGTH},
+allow_nil: true
 
   class << self
     # Returns the hash digest of the given string.
@@ -46,7 +49,7 @@ format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
              else
                BCrypt::Engine.cost
              end
-      BCrypt::Password.create(string, cost: cost)
+      BCrypt::Password.create(string, cost:)
     end
 
     def new_token
@@ -65,6 +68,8 @@ format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   end
 
   def authenticated? remember_token
+    return false if remember_digest.nil?
+
     BCrypt::Password.new(remember_digest).is_password? remember_token
   end
 

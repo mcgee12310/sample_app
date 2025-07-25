@@ -27,7 +27,7 @@ module SessionsHelper
     return if user_id.blank?
 
     user = User.find_by(id: user_id)
-    return user if user&.authenticated?(session[:remember_token])
+    user if user&.authenticated?(session[:remember_token])
   end
 
   def find_user_from_cookies
@@ -35,10 +35,10 @@ module SessionsHelper
     return if user_id.blank?
 
     user = User.find_by(id: user_id)
-    if user&.authenticated?(cookies[:remember_token])
-      log_in(user)
-      user
-    end
+    return unless user&.authenticated?(cookies[:remember_token])
+
+    log_in(user)
+    user
   end
 
   # Returns true if the user is logged in, false otherwise.
@@ -65,5 +65,20 @@ module SessionsHelper
     user.forget
     cookies.delete :user_id
     cookies.delete :remember_token
+  end
+
+  # Returns true if the given user is the current user.
+  def current_user? user
+    user == current_user
+  end
+
+  def redirect_back_or default
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # Stores the URL trying to be accessed.
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
   end
 end

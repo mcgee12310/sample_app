@@ -14,14 +14,16 @@ class SessionsController < ApplicationController
         remember(user) # tao token luu vao cookie
       end
       # login binh thuong:
-      # user nhap email/password -> authenticate -> neu dung luu vao session 
+      # user nhap email/password -> authenticate -> neu dung luu vao session
       # -> khi tat trinh duyet se mat session -> login lai
       # login co remember_me:
-      # user nhap email/password + remember_me -> authenticate -> neu dung luu vao cookie (luu dai han) 
-      # -> -> khi tat trinh duyet se khong mat cookie 
-      # -> khi khong co session -> Rails doc cookie tim user_id -> authenticate remember_token va remember_digest
+      # user nhap email/password + remember_me -> authenticate
+      # -> neu dung luu vao cookie (luu dai han)
+      # -> khi tat trinh duyet se khong mat cookie
+      # -> khi khong co session -> Rails doc cookie tim user_id
+      # -> authenticate remember_token va remember_digest
       # -> neu dung se login tu dong/tao session
-      redirect_to user, status: :see_other
+      redirect_back_or user
     else
       # Create an error
       flash.now[:danger] = t("login.failure")

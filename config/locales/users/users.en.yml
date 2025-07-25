@@ -1,15 +1,16 @@
 en:
   users:
     not_found: "User not found."
+    not_logged_in: "Please login."
+    not_authorized: "You don't have authorize."
     index:
+      title: "All users"
       user: "Users"
       name: "Name"
       email: "Email"
       show: "Show"
       edit: "Edit"
-      destroy: "Destroy"
-      new_user: "New User"
-      date: "Create date" 
+      destroy: "Delete"
     show:
       name: "Name"
       created_at: "Created date" 
@@ -18,8 +19,24 @@ en:
       success: "User was successfully created."
       failure: "Failed to create user."
     update:
+      title: "Update your profile"
+      avatar: "Change avatar"
+      submit: "Save change"
       success: "User was successfully updated."
       failure: "Failed to update the user."
+      forbid: "Cannot update this user."
     destroy:
       success: "User was successfully deleted."
       failure: "Failed to delete the user."
+      confirm: "Are you sure to delete this user?"
+    form:
+      name: "Name"
+      email: "Email"
+      date_of_birth: "Date of birth"
+      gender: "Gender"
+      genders:
+        male: "Male"
+        female: "Female"
+        other: "Other"
+      password: "Password"
+      password_confirmation: "Password Confirmation"

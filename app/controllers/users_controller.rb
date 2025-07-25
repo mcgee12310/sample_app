@@ -1,8 +1,13 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  # BEFORE_ACTION CHAY TU TREN XUONG DUOI!!!
+  before_action :logged_in_user, only: %i(index show edit update destroy)
+  # = only: %i(index edit update destroy)
+  before_action :load_user, only: %i(show edit update destroy)
+  before_action :correct_user, only: %i(edit update)
+  before_action :admin_user, only: :destroy
 
   def index
-    @users = User.recent
+    @pagy, @users = pagy(User.recent)
   end
 
   def show; end
@@ -16,21 +21,64 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in(@user)
-      flash[:success] = t("users.create.success")
+      flash[:success] = t(".success")
       redirect_to @user, status: :see_other
     else
-      flash[:error] = t("users.create.failure")
+      flash[:error] = t(".failure")
       render :new, status: :unprocessable_entity
     end
   end
 
+  def edit; end
+
+  def update
+    if @user.update user_params
+      flash[:success] = t(".success")
+      redirect_to @user
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:success] = t(".success")
+    else
+      flash[:danger] = t(".failure")
+    end
+
+    redirect_to users_path
+  end
+
   private
 
-  def set_user
+  def load_user
     @user = User.find_by id: params[:id]
     return if @user
 
-    flash[:warning] = t("users.not_found")
+    flash[:warning] = t(".not_found")
+    redirect_to root_path
+  end
+
+  def logged_in_user
+    return if logged_in?
+
+    store_location
+    flash[:danger] = t(".not_logged_in")
+    redirect_to login_url
+  end
+
+  def correct_user
+    return if current_user?(@user)
+
+    flash[:danger] = t(".update.forbid")
+    redirect_to root_url
+  end
+
+  def admin_user
+    return if current_user.admin?
+
+    flash[:danger] = t(".not_authorized")
     redirect_to root_path
   end
 
