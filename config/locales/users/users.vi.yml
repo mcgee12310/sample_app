@@ -2,6 +2,8 @@ vi:
   users:
       not_found: "Không tìm thấy người dùng."
       not_logged_in: "Vui lòng đăng nhập."
+      activated: "Tài khoản đã được kích hoạt!"
+      not_activated: "Tài khoản chưa được kích hoạt. Vui lòng kiểm tra email."
       not_authorized: "Bạn không có quyền truy cập."
       index:
         title: "Tất cả người dùng"
@@ -18,6 +20,7 @@ vi:
       create:
         success: "Tạo người dùng thành công."
         failure: "Tạo người dùng thất bại."
+        activate: "Vui lòng kiểm tra email để kích hoạt tài khoản."
       update:
         title: "Cập nhật thông tin"
         avatar: "Đổi ảnh đại diện"
