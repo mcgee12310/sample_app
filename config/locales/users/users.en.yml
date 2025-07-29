@@ -1,5 +1,6 @@
 en:
   users:
+    view_profile: "View profile"
     not_found: "User not found."
     not_logged_in: "Please login."
     activated: "Tài khoản đã được kích hoạt!"
@@ -15,6 +16,7 @@ en:
       destroy: "Delete"
     show:
       name: "Name"
+      micropost: "Microposts"
       created_at: "Created date" 
       updated_at: "Updated date" 
     create:

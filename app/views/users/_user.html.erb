@@ -5,7 +5,7 @@
     <%= t("users.index.name") %>: <%= link_to user.name, user %>
 
     <% if can_destroy_user? user %>
-        <%= link_to t("users.index.delete"), user,
+        <%= link_to t("users.index.destroy"), user,
             data: { "turbo-method": :delete, turbo_confirm: t("users.destroy.confirm") },
             class: "btn-delete-user" %>
     <% end %>

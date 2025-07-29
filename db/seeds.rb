@@ -31,3 +31,10 @@ User.create!(
   )
 end
 
+users = User.order(:created_at).take(6)
+users.each do |user|
+  10.times do
+    content = Faker::Lorem.sentence(word_count: 5)
+    user.microposts.create!(content: content)
+  end
+end

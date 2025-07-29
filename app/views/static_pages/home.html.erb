@@ -1,9 +1,33 @@
 <% provide :title, t("home.title") %>
 
-<div class="center jumbotron" style="margin-top: 30px;">
-  <h1><%= t("home.welcome") %></h1>
-  <h2>
-    <%= t("home.description_html", link: link_to("Ruby on Rails Tutorial", "http://www.railstutorial.org/")).html_safe %>
-  </h2>
-  <%= link_to t("home.signup"), signup_path, class: "btn btn-lg btn-primary" %>
-</div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render "shared/user_info" %>
+      </section>
+
+      <section class="micropost_form">
+        <%= render "shared/micropost_form" %>
+      </section>
+    </aside>
+
+    <div class="col-md-8">
+      <h3><%= t("home.feed") %></h3>
+      <%= render "shared/feed" %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron" style="margin-top: 30px;">
+    <h1><%= t("home.welcome") %></h1>
+
+    <h2>
+      <%= t(
+        "home.description_html",
+        link: link_to(t("home.rails_tutorial"), Settings.default.home.rails_tutorial)
+      ).html_safe %>
+    </h2>
+
+    <%= link_to t("home.signup"), signup_path, class: "btn btn-lg btn-primary" %>
+  </div>
+<% end %>

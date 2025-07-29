@@ -15,6 +15,7 @@ vi:
         destroy: "Xóa"
       show:
         name: "Tên"
+        micropost: "Bài đăng"
         created_at: "Ngày tạo" 
         updated_at: "Ngày sửa đổi" 
       create:

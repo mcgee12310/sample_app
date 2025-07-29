@@ -1,10 +1,13 @@
 vi:
   app: "Ứng Dụng"
+  form_error: "Đã xảy ra lỗi"
   home:
     title: "Trang chủ"
     welcome: "Chào mừng đến với Sample App"
-    description_html: "Đây là trang chủ cho %{link} ứng dụng."
+    description_html: "Đây là trang chủ cho %{link}."
+    rails_tutorial: "hướng dẫn Ruby on Rails"
     signup: "Đăng ký ngay!"
+    feed: "Bản tin"
 
   header:
     logo: "Ứng Dụng"

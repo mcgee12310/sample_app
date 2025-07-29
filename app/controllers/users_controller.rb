@@ -9,7 +9,9 @@ class UsersController < ApplicationController
     @pagy, @users = pagy(User.recent)
   end
 
-  def show; end
+  def show
+    @pagy, @microposts = pagy(@user.microposts.recent_posts)
+  end
 
   def new
     @user = User.new
@@ -21,7 +23,7 @@ class UsersController < ApplicationController
     if @user.save
       log_out
       @user.send_activation_email
-      flash[:info] = t("users.create.activate")
+      flash[:info] = t(".activate")
       redirect_to root_url, status: :see_other
     else
       flash[:error] = t("users.create.failure")
@@ -58,14 +60,6 @@ class UsersController < ApplicationController
 
     flash[:warning] = t(".not_found")
     redirect_to root_path
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t(".not_logged_in")
-    redirect_to login_url
   end
 
   def correct_user

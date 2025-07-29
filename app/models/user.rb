@@ -33,6 +33,8 @@ class User < ApplicationRecord
   before_save :downcase_email
   before_create :create_activation_digest
 
+  has_many :microposts, dependent: :destroy
+
   scope :recent, ->{order(created_at: :desc)} # thu tu giam dan
 
   validates :name, presence: true, length: {maximum: NAME_MAX_LENGTH}
@@ -101,6 +103,10 @@ allow_nil: true
     return false if reset_sent_at.nil?
 
     reset_sent_at < PASSWORD_RESET_EXPIRED.hours.ago
+  end
+
+  def feed
+    Micropost.recent_posts
   end
 
   private
