@@ -8,6 +8,7 @@ default: &default
     avatar: "https://secure.gravatar.com/avatar/"
     home_size: 50
     micropost_size: 50
+    follow_size: 30
   mailer:
     from: "from@example.com"
   image:

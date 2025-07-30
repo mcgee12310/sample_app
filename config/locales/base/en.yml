@@ -1,6 +1,7 @@
 en:
   app: "Sample App"
-  form_error: "The form contains"
+  form_error_head: "The form contains"
+  form_error_tail: "error(s)."
   home:
     title: "Home"
     welcome: "Welcome to the Sample App"

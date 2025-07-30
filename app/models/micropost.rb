@@ -16,6 +16,9 @@ class Micropost < ApplicationRecord
   belongs_to :user
 
   scope :recent_posts, -> {order(created_at: :desc)}
+  scope :relate_post, -> (user_ids) do
+    where(user_id: user_ids).order(created_at: :desc)
+  end
 
   validates :content, presence: true, length: {maximum: CONTENT_LIMIT}
 

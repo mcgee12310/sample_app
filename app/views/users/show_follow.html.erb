@@ -1,0 +1,35 @@
+<% provide(:title, @title) %>
+
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info text-left">
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to t("users.view_profile"), @user %></span><br>
+      <span><b><%= t("microposts.micropost") %>:</b> <%= @user.microposts.count %></span>
+    </section>
+
+    <section class="stats text-center mt-3">
+      <%= render "shared/stats" %>
+      <% if @users.any? %>
+        <div class="user_avatars d-flex justify-content-center flex-wrap mt-2">
+          <% @users.each do |user| %>
+            <%= link_to gravatar_for(user, size: Settings.default.gravatar.follow_size), user, class: "mx-1" %>
+          <% end %>
+        </div>
+      <% end %>
+    </section>
+  </aside>
+
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <ul class="users follow list-unstyled">
+        <%= render @users %>
+      </ul>
+      <%== pagy_bootstrap_nav(@pagy) if @pagy %>
+    <% else %>
+      <p><%= t("microposts.no_post") %></p>
+    <% end %>
+  </div>
+</div>

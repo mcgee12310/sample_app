@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   # BEFORE_ACTION CHAY TU TREN XUONG DUOI!!!
-  before_action :logged_in_user, only: %i(index show edit update destroy)
-  before_action :load_user, only: %i(show edit update destroy)
+  before_action :logged_in_user, except: %i(new create show)
+  before_action :load_user, except: %i(index new create)
   before_action :correct_user, only: %i(edit update)
   before_action :admin_user, only: :destroy
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:info] = t(".activate")
       redirect_to root_url, status: :see_other
     else
-      flash[:error] = t("users.create.failure")
+      flash[:error] = t(".failure")
       render :new, status: :unprocessable_entity
     end
   end
@@ -50,6 +50,18 @@ class UsersController < ApplicationController
     end
 
     redirect_to users_path
+  end
+
+  def following
+    @title = t("relationships.following")
+    @pagy, @users = pagy @user.following.recent
+    render :show_follow
+  end
+
+  def followers
+    @title = t("relationships.followers")
+    @pagy, @users = pagy @user.followers.recent
+    render :show_follow
   end
 
   private

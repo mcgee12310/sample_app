@@ -1,6 +1,7 @@
 vi:
   app: "Ứng Dụng"
-  form_error: "Đã xảy ra lỗi"
+  form_error_head: "Đã xảy ra"
+  form_error_tail: "lỗi."
   home:
     title: "Trang chủ"
     welcome: "Chào mừng đến với Sample App"

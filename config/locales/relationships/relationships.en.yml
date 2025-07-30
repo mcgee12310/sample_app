@@ -1,0 +1,5 @@
+en:
+  relationships:
+    not_found: "Not following this user."
+    following: "Following"
+    followers: "Followers"
